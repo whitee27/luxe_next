@@ -126,8 +126,7 @@
  /**
    Приводим к единому цвету svg-элементы
   */
- svg *[fill] { fill: var(--color-purple) }
- svg *[stroke] { stroke: var(--color-purple) }
+
  
  /**
    Чиним баг задержки смены цвета при взаимодействии с svg-элементами

@@ -33,9 +33,9 @@ body {
   }
   
   h3, .h3 {
-    @include fluid-text(24, 20);
+    @include fluid-text(38, 24);
   }
   
   h4, .h4 {
-    @include fluid-text(20, 18);
+    @include fluid-text(24, 18);
   }

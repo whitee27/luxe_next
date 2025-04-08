@@ -123,14 +123,6 @@ body {
 /**
   Приводим к единому цвету svg-элементы
  */
-svg *[fill] {
-  fill: var(--color-purple);
-}
-
-svg *[stroke] {
-  stroke: var(--color-purple);
-}
-
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
  */
@@ -179,7 +171,7 @@ svg * {
   --border-radius: 14px;
   --border-radius-small: 7px;
   --border-radius-large: 45px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   --font-family-base: "Poppins", sans-serif;
   --container-width: 1440px;
   --container-padding-x: 124px;
@@ -204,17 +196,7 @@ svg * {
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
 }
-@media (max-width: 1280px) {
-  .container {
-    padding-inline: 100px;
-  }
-}
-@media (max-width: 1023px) {
-  .container {
-    padding-inline: 50px;
-  }
-}
-@media (max-width: 430px) {
+@media (max-width: 767px) {
   .container {
     padding-inline: 30px;
   }
@@ -281,11 +263,15 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: clamp(20px, 1.6666666667vw, 24px);
+  font-size: clamp(24px, 2.6388888889vw, 38px);
 }
 
 h4, .h4 {
-  font-size: clamp(18px, 1.3888888889vw, 20px);
+  font-size: clamp(18px, 1.6666666667vw, 24px);
+}
+
+.section {
+  padding-bottom: var(--section-padding-y);
 }
 
 .advantages {
@@ -293,8 +279,10 @@ h4, .h4 {
   flex-direction: column;
   row-gap: 60px;
 }
-@media (max-width: 1280px) {
+@media (max-width: 767px) {
   .advantages {
+    align-items: center;
+    justify-content: center;
     row-gap: 30px;
   }
 }
@@ -324,18 +312,18 @@ h4, .h4 {
     font-size: 52px;
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 767px) {
   .advantages__title {
     font-size: 28px;
   }
 }
-@media (max-width: 430px) and (hover: hover) {
+@media (max-width: 767px) and (hover: hover) {
   .advantages__title:hover {
     color: var(--color-purple);
     font-size: 32px;
   }
 }
-@media (max-width: 430px) and (hover: none) {
+@media (max-width: 767px) and (hover: none) {
   .advantages__title:active {
     color: var(--color-purple);
     font-size: 32px;
@@ -351,11 +339,10 @@ h4, .h4 {
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 1280px) {
+@media (max-width: 767px) {
   .advantages__list {
     flex-direction: column;
     row-gap: 50px;
-    justify-content: center;
     align-items: center;
   }
 }
@@ -391,6 +378,16 @@ h4, .h4 {
 .advantages__item-description--last {
   padding-bottom: 51px;
 }
+@media (max-width: 1280px) {
+  .advantages__item-description {
+    width: 200px;
+  }
+}
+@media (max-width: 767px) {
+  .advantages__item-description {
+    width: 100%;
+  }
+}
 .advantages__item-link {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -419,7 +416,7 @@ h4, .h4 {
   border-right: 1px solid var(--color-dark);
   padding-right: 39px;
 }
-@media (max-width: 1280px) {
+@media (max-width: 767px) {
   .advantages__item:nth-child(1) {
     border-right: none;
     padding-right: 0;
@@ -432,7 +429,7 @@ h4, .h4 {
   padding-right: 34.5px;
   width: 416.5px;
 }
-@media (max-width: 1280px) {
+@media (max-width: 767px) {
   .advantages__item:nth-child(2) {
     border-right: none;
     padding-right: 0;
@@ -444,7 +441,7 @@ h4, .h4 {
   padding-left: 37.5px;
   width: 386.5px;
 }
-@media (max-width: 1280px) {
+@media (max-width: 767px) {
   .advantages__item:nth-child(3) {
     padding-left: 0;
     width: 349px;
