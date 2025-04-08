@@ -95,7 +95,8 @@
             font-weight: 600;
             font-size: 16px;
             transition-duration: var(--transition-duration);  
-
+            width: 128px;
+            
             @include hover {
                 color: var(--color-purple);
             }
