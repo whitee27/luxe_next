@@ -1,0 +1,142 @@
+.advantages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+
+
+    @include desktop {
+        row-gap: 30px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 48px;
+        transition-duration: var(--transition-duration);
+        text-wrap: nowrap;
+        
+        @include hover {
+            color: var(--color-purple);
+            font-size: 52px;
+        }
+
+        @include mobile-s {
+            font-size: 28px;
+
+            @include hover {
+                color: var(--color-purple);
+                font-size: 32px;
+            }
+        }
+    }
+
+    &__description {
+        font-weight: 300;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include desktop {
+            flex-direction: column;
+            row-gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+
+        &-icon {
+            transition-duration: var(--transition-duration);
+    
+            @include hover {
+                transform: scale(1.1);
+            }
+        }
+        
+        &-title {
+            font-weight: 600;
+            font-size: 24px;
+            padding-top: 12px;
+            margin-bottom: 2px;
+        }
+
+        &-description {
+            font-weight: 300;
+            font-size: 16px;
+            padding-bottom: 27px;
+            width: 349px;
+
+            &--last {
+                padding-bottom: 51px;
+            }
+        }
+
+        &-link {
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            column-gap: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            transition-duration: var(--transition-duration);  
+
+            @include hover {
+                color: var(--color-purple);
+            }
+        }
+
+        &:nth-child(1) {
+            width: 388px;
+            border-right: 1px solid var(--color-dark);
+            padding-right: 39px;
+
+            @include desktop {
+                border-right: none;
+                padding-right: 0;
+                width: 349px;
+            }
+        }
+
+        &:nth-child(2) {
+            border-right: 1px solid var(--color-dark);
+            padding-left: 33px;
+            padding-right: 34.5px;
+            width: 416.5px;
+
+            @include desktop {
+                border-right: none;
+                padding-right: 0;
+                padding-left: 0;
+                width: 349px;
+            }
+        }
+
+        &:nth-child(3) {
+            padding-left: 37.5px;
+            width: 386.5px;
+
+            @include desktop {
+                padding-left: 0;
+                width: 349px;
+            }
+        }
+    }
+    
+    
+}

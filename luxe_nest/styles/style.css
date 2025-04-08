@@ -1,0 +1,451 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: var(--color-purple);
+}
+
+svg *[stroke] {
+  stroke: var(--color-purple);
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-dark: #1E1E1E;
+  --color-light: #FAFAFA;
+  --color-purple: #A783FF;
+  --border: 1px solid var(--color-dark);
+  --border-radius: 14px;
+  --border-radius-small: 7px;
+  --border-radius-large: 45px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  --font-family-base: "Poppins", sans-serif;
+  --container-width: 1440px;
+  --container-padding-x: 124px;
+  --section-padding-y: 158px;
+  --input-height: 59px;
+  --button-height: 68px;
+  --transition-duration: 0.2s;
+}
+@media (max-width: 1280px) {
+  :root {
+    --section-padding-y: 158px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --section-padding-y: 318px;
+  }
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+@media (max-width: 1280px) {
+  .container {
+    padding-inline: 100px;
+  }
+}
+@media (max-width: 1023px) {
+  .container {
+    padding-inline: 50px;
+  }
+}
+@media (max-width: 430px) {
+  .container {
+    padding-inline: 30px;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-size: 18px;
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
+
+h1, .h1 {
+  font-size: clamp(48px, 6.5277777778vw, 94px);
+}
+
+h2, .h2 {
+  font-size: clamp(28px, 3.3333333333vw, 48px);
+}
+
+h3, .h3 {
+  font-size: clamp(20px, 1.6666666667vw, 24px);
+}
+
+h4, .h4 {
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+}
+@media (max-width: 1280px) {
+  .advantages {
+    row-gap: 30px;
+  }
+}
+.advantages__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.advantages__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 48px;
+  transition-duration: var(--transition-duration);
+  text-wrap: nowrap;
+}
+@media (hover: hover) {
+  .advantages__title:hover {
+    color: var(--color-purple);
+    font-size: 52px;
+  }
+}
+@media (hover: none) {
+  .advantages__title:active {
+    color: var(--color-purple);
+    font-size: 52px;
+  }
+}
+@media (max-width: 430px) {
+  .advantages__title {
+    font-size: 28px;
+  }
+}
+@media (max-width: 430px) and (hover: hover) {
+  .advantages__title:hover {
+    color: var(--color-purple);
+    font-size: 32px;
+  }
+}
+@media (max-width: 430px) and (hover: none) {
+  .advantages__title:active {
+    color: var(--color-purple);
+    font-size: 32px;
+  }
+}
+.advantages__description {
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+}
+.advantages__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1280px) {
+  .advantages__list {
+    flex-direction: column;
+    row-gap: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.advantages__item {
+  display: flex;
+  flex-direction: column;
+}
+.advantages__item-icon {
+  transition-duration: var(--transition-duration);
+}
+@media (hover: hover) {
+  .advantages__item-icon:hover {
+    transform: scale(1.1);
+  }
+}
+@media (hover: none) {
+  .advantages__item-icon:active {
+    transform: scale(1.1);
+  }
+}
+.advantages__item-title {
+  font-weight: 600;
+  font-size: 24px;
+  padding-top: 12px;
+  margin-bottom: 2px;
+}
+.advantages__item-description {
+  font-weight: 300;
+  font-size: 16px;
+  padding-bottom: 27px;
+  width: 349px;
+}
+.advantages__item-description--last {
+  padding-bottom: 51px;
+}
+.advantages__item-link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: inline-flex;
+  align-items: center;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  transition-duration: var(--transition-duration);
+}
+@media (hover: hover) {
+  .advantages__item-link:hover {
+    color: var(--color-purple);
+  }
+}
+@media (hover: none) {
+  .advantages__item-link:active {
+    color: var(--color-purple);
+  }
+}
+.advantages__item:nth-child(1) {
+  width: 388px;
+  border-right: 1px solid var(--color-dark);
+  padding-right: 39px;
+}
+@media (max-width: 1280px) {
+  .advantages__item:nth-child(1) {
+    border-right: none;
+    padding-right: 0;
+    width: 349px;
+  }
+}
+.advantages__item:nth-child(2) {
+  border-right: 1px solid var(--color-dark);
+  padding-left: 33px;
+  padding-right: 34.5px;
+  width: 416.5px;
+}
+@media (max-width: 1280px) {
+  .advantages__item:nth-child(2) {
+    border-right: none;
+    padding-right: 0;
+    padding-left: 0;
+    width: 349px;
+  }
+}
+.advantages__item:nth-child(3) {
+  padding-left: 37.5px;
+  width: 386.5px;
+}
+@media (max-width: 1280px) {
+  .advantages__item:nth-child(3) {
+    padding-left: 0;
+    width: 349px;
+  }
+}/*# sourceMappingURL=style.css.map */
