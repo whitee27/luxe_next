@@ -505,6 +505,9 @@ h4, .h4 {
   background-color: transparent;
   border: var(--border);
   border-radius: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .reviews__header-button-right {
   display: flex;
@@ -517,6 +520,9 @@ h4, .h4 {
   background-color: var(--color-purple);
   border-radius: 50%;
   transition-duration: var(--transition-duration);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 @media (hover: hover) {
   .reviews__header-button-right:hover {
