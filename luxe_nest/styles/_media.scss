@@ -1,3 +1,5 @@
+$container-width: 1439px;
+
 $desktop-above: 1281px;
 $desktop: 1280px;
 
@@ -10,6 +12,11 @@ $mobile: 767px;
 $mobile-s-above: 431px;
 $mobile-s: 430px;
 
+@mixin container-width {
+  @media (max-width: $container-width) {
+    @content;
+  }
+}
 
 @mixin desktop-above {
   @media (min-width: $desktop-above) {
