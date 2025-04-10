@@ -36,6 +36,7 @@
             @include hover {
                 color: var(--color-purple);
                 font-size: 32px;
+                transition-duration: 0;
             }
         }
     }
@@ -56,6 +57,10 @@
             row-gap: 50px;
             align-items: center;
         }
+
+        @include mobile-s-below {
+            padding-left: 120px;
+        }
     }
 
     &__item {
@@ -64,11 +69,6 @@
 
         &-icon {
             user-select: none;
-            transition-duration: var(--transition-duration);
-    
-            @include hover {
-                transform: scale(1.1);
-            }
         }
         
         &-title {
@@ -97,6 +97,15 @@
                 width: 100%;
                 height: auto;
             }
+
+            @include mobile-s {
+                max-width: 349px;
+            }
+
+            @include mobile-s-below {
+                max-width: 200px;
+                font-size: 16px;
+            }
         }
 
         &-link {
@@ -111,6 +120,12 @@
 
             @include hover {
                 color: var(--color-purple);
+            }
+
+            @include mobile {
+                @include hover {
+                    transition-duration: 0;
+                }
             }
         }
 

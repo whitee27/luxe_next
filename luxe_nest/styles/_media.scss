@@ -12,6 +12,8 @@ $mobile: 767px;
 $mobile-s-above: 431px;
 $mobile-s: 430px;
 
+$mobile-s-below: 429px;
+
 @mixin container-width {
   @media (max-width: $container-width) {
     @content;
@@ -62,6 +64,12 @@ $mobile-s: 430px;
 
 @mixin mobile-s {
   @media (max-width: $mobile-s) {
+    @content;
+  }
+}
+
+@mixin mobile-s-below {
+  @media (max-width: $mobile-s-below) {
     @content;
   }
 }

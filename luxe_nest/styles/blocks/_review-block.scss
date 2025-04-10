@@ -39,6 +39,10 @@
 
         @include mobile {
             font-size: 28px;
+
+            @include hover {
+                transition-duration: 0;
+            }
         }
     }
 
@@ -72,6 +76,11 @@
             min-width: 313px;
             text-align: center;
         }
+
+        @include mobile-s-below {
+            font-size: 16px;
+            min-width: 200px;
+        }
     }
 
     &__stars {
@@ -84,6 +93,11 @@
             }
         }
     }
-    
-    
+
+    &__icon {
+        @include mobile-s-below {
+            height: 33px;
+            width: 45px;
+        }
+    }
 }

@@ -34,6 +34,7 @@
                 color: var(--color-purple);
                 font-size: 52px;
                 max-width: 400px;
+                transition-duration: 0;
             }
         }
 
@@ -41,6 +42,7 @@
             @include hover {
                 color: var(--color-purple);
                 font-size: 48px;
+                transition-duration: 0;
             }
         }
     }
@@ -97,6 +99,10 @@
                 @include mobile  {
                     min-width: 64px;
                     height: 50px;
+
+                    @include hover {
+                        transition-duration: 0;
+                    }
                 }
 
                 @include mobile-s  {
@@ -158,6 +164,10 @@
                 @include mobile {
                     width: 47px;
                     height: 47px;
+
+                    @include hover {
+                        transition-duration: 0;
+                    }
                 }
 
                 &:nth-child(1) {

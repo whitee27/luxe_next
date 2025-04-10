@@ -5,7 +5,6 @@
     position: relative;
     left: 29px;
     top: 37px;
-    transition-duration: var(--transition-duration);
 
     @include hover {
         background-color: var(--color-purple);

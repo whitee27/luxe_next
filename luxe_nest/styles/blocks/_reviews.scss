@@ -74,6 +74,12 @@
                     background-color: transparent;
                     border: var(--border);
                 }
+
+                @include mobile {
+                    @include hover {
+                        transition-duration: 0;
+                    }
+                }
             }
         }
     }
@@ -94,6 +100,7 @@
             @include hover {
                 color: var(--color-purple);
                 font-size: 32px;
+                transition-duration: 0;
             }
         }
     }
