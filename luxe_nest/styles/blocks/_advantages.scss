@@ -63,6 +63,7 @@
         flex-direction: column;
 
         &-icon {
+            user-select: none;
             transition-duration: var(--transition-duration);
     
             @include hover {
@@ -89,10 +90,12 @@
 
             @include desktop {
                 width: 200px;
+                height: 200px;
             }
 
             @include mobile {
                 width: 100%;
+                height: auto;
             }
         }
 

@@ -1,0 +1,29 @@
+.button {
+    color: var(--color-light);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 25px;
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-dark);
+    transition: background-color var(--transition-duration);
+    border: none;
+    text-wrap: nowrap;
+    cursor: pointer;
+    max-height: 32px;
+    user-select: none;
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+        background-color: var(--color-purple);
+        color: var(--color-dark);
+    }
+
+    @include tablet {
+        padding: 5px 20px;
+    }
+
+    @include mobile {
+        font-size: 10px;
+        padding: 5px 17px;
+    }
+}

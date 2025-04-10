@@ -6,6 +6,10 @@
     @include mobile {
       padding-inline: 30px;
   }
+
+  @include tablet {
+    padding-inline: 50px;
+}
   }
   
   .visually-hidden {

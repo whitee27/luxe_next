@@ -30,7 +30,9 @@
         &-buttons {
             display: flex;
             column-gap: 23px;
-
+            cursor: pointer;
+            user-select: none;
+            
             @include tablet {
                 order: 4;
                 column-gap: 0;

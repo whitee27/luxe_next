@@ -1,0 +1,124 @@
+.header {
+    margin-top: 36px;
+    margin-bottom: 66px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-light);
+    
+    &__logo {
+        min-width: 135px;
+        transition-duration: var(--transition-duration);
+
+        @include hover {
+            transform: scale(1.1);
+        }
+
+        @include tablet {
+            transform: scale(0.8);
+        }
+
+        @include mobile {
+            transform: none;
+            min-width: 87px;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+
+        &:first-child {
+            column-gap: 398px;
+
+            @include container-width {
+                column-gap: 20px;
+            }
+        }
+
+        
+    }
+
+    &__logo-text {
+
+        &--purple {
+            color: var(--color-purple);
+            font-weight: 600;
+            font-size: 28px;
+
+            @include mobile {
+                font-size: 18px;
+            }
+        }
+
+        &--dark {
+            color: var(--color-dark);
+            font-weight: 600;
+            font-size: 28px;
+
+            @include mobile {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        column-gap: 67px;
+        align-items: center;
+
+        @include tablet {
+            column-gap: 30px;
+        }
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 31px;
+
+            @include tablet {
+                column-gap: 10px;
+            }
+        }
+
+        &-item {
+            font-weight: 500;
+            font-size: 14px;
+
+            @include tablet {
+                transform: scale(0.8);
+            }
+        }
+
+        &-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 60px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                translate: -50%;
+                width: 0;
+                height: 2px;
+                background-color: var(--color-purple);
+                transition-duration: inherit;
+            }
+
+            @include hover {
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+    
+    
+}
