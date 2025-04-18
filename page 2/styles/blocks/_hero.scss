@@ -1,0 +1,372 @@
+.hero {
+    &__header {
+        max-width: 1440px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 37px;
+
+        @include mobile  {
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 103px;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            row-gap: 26px;
+
+            @include mobile {
+                row-gap: 0;
+            }   
+        }
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+
+            @include mobile {
+                margin-top: 30px;
+                padding-inline: 20px;
+            }
+
+            &-input {
+                border: 1px solid #bcbcbc;;
+                font-weight: 400;
+                font-size: 20px;
+                width: 400px;
+                height: var(--input-height);
+                border-radius: 7px;
+                padding: 10px 20px 10px;
+
+                @include mobile {
+                    width: 100%;
+                }
+            }
+
+            &-button {
+                font-weight: 500;
+                font-size: 20px;
+                width: 100%;
+                height: var(--input-height);
+                border-radius: 7px;
+                background-color: var(--color-main);
+                color: var(--color-light);
+                padding-block: 10px;
+                border: none;
+                transition-duration: var(--transition-duration);
+
+                @include hover {
+                    background-color: var(--color-dark);
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 94px;
+        line-height: 0.6;
+        text-transform: uppercase;
+        max-width: 648px;
+        transition-duration: var(--transition-duration);
+
+        @include hover {
+            color: var(--color-main);
+            font-size: 98px;
+            max-width: 670px;
+        }
+
+        @include container-width {
+            min-height: 144px;
+            line-height: 0.8;
+        }
+
+        @include desktop {
+            font-size: 60px;
+        }
+
+        @include tablet {
+            font-size: 50px;
+        }
+
+        @include mobile  {
+            line-height: 137%;
+            font-size: 48px;
+            max-width: 382px;
+
+            @include hover {
+                color: var(--color-main);
+                font-size: 52px;
+                max-width: 400px;
+                transition-duration: 0;
+            }
+        }
+
+        @include mobile-s  {
+            @include hover {
+                color: var(--color-main);
+                font-size: 48px;
+                transition-duration: 0;
+            }
+        }
+
+        &-span {
+            font-size: 57px;
+
+            @include container-width {
+                font-size: 94px;
+            }
+
+            @include desktop {
+                font-size: 60px;
+            }
+
+            @include tablet {
+                font-size: 50px;
+            }
+
+            @include mobile-s  {
+                @include hover {
+                    color: var(--color-main);
+                    font-size: 48px;
+                    transition-duration: 0;
+                }
+            }
+        }
+    }
+
+    &__description {
+        margin-top: 26px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 100%;
+        max-width: 634px;
+        padding: 15px;
+        color: var(--color-main);
+        border: 1px solid rgba(27, 134, 222, 0.25);
+        border-radius: 0 15px 0 15px;
+
+        @include desktop {
+            font-size: 20px;
+            width: 80%;
+        }
+
+        @include mobile {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__body {
+        position: relative;
+        display: flex;
+        width: 100vw;
+        height: 718px;
+        background-image: url(../images/hero/home.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include mobile {
+            height: 500px;
+        }
+        
+        &-start {
+            position: absolute;
+            top: -1px;
+            right: 0;
+            user-select: none;
+            background-color: var(--color-light);
+            max-width: 590px;
+            max-height: 163px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 14% 100%);
+
+            @include mobile  {
+                max-width: 300px;
+                max-height: 76px;
+            }
+
+            @include mobile-s  {
+                max-width: 229px;
+                max-height: 54px;
+            }
+
+            &-inner {
+                display: flex;
+                column-gap: 12px;
+                padding: 25px 110px 27px;
+
+                @include mobile {
+                    padding: 7px 58px 7px;
+                    column-gap: 5px;
+                }
+            }
+
+            &-image {
+                border-radius: 7px;
+                transition-duration: 0.4s;
+
+                @include hover {
+                    transform: scale(1.1);
+                }
+
+                @include mobile  {
+                    width: 50px;
+                    height: 50px;
+
+                    @include hover {
+                        transition-duration: 0;
+                    }
+                }
+
+                @include mobile-s  {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+
+        &-end {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            background-color: var(--color-light);
+            max-width: 568px;
+            max-height: 149px;
+            clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+
+            @include mobile  {
+                max-width: 300px;
+                max-height: 76px;
+                clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);
+            }
+
+            @include mobile-s {
+                max-width: 229px;
+                max-height: 58px;
+            }
+
+            &-inner {
+                display: flex;
+                flex-direction: column;
+                row-gap: 9px;
+                padding: 25px 124px 8px;
+
+                @include mobile  {
+                    row-gap: 0;
+                    padding: 12px 24px 5px;
+                }
+
+                @include mobile-s {
+                    padding: 10px 24px 5px;
+                }
+            }
+
+            &-images {
+                display: flex;
+                user-select: none;
+            }
+
+            &-image {
+                position: relative;
+                transition-duration: 0.4s;
+
+                @include hover {
+                    transform: scale(1.1);
+                }
+
+                @include mobile {
+                    width: 47px;
+                    height: 47px;
+
+                    @include hover {
+                        transition-duration: 0;
+                    }
+                }
+
+                &:nth-child(1) {
+                    right: 0;
+                }
+
+                &:nth-child(2) {
+                    right: 20px;
+                    z-index: 100;
+
+                    @include mobile  {
+                        right: 9px;
+                    }
+                }
+
+                &:nth-child(3) {
+                    right: 40px;
+                    z-index: 200;
+
+                    @include mobile  {
+                        right: 18px;
+                    }
+                }
+
+                &:nth-child(4) {
+                    right: 60px;
+                    z-index: 300;
+
+                    @include mobile  {
+                        right: 27px;
+                    }
+                }
+
+                &:nth-child(5) {
+                    right: 80px;
+                    z-index: 400;
+
+                    @include mobile  {
+                        right: 36px;
+                    }
+                }
+
+                &:nth-child(6) {
+                    right: 100px;
+                    z-index: 500;
+
+                    @include mobile  {
+                        right: 45px;
+                    }
+                }
+            }
+
+            &-circle {
+                @include square(71px);
+                position: relative;
+                display: flex;
+                flex-shrink: 0;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: var(--color-dark);
+                border: 3px solid var(--color-light);
+                box-shadow: var(--box-shadow);
+
+                &-text {
+                    font-weight: 500;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+
+            &-title {
+                font-weight: 600;
+                font-size: 24px;
+                text-align: start;
+                transition-duration: var(--transition-duration);
+
+                @include hover {
+                    color: var(--color-main);
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

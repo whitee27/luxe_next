@@ -1,0 +1,22 @@
+@import 'normalize', 
+        'fonts', 
+        'mixins', 
+        'media', 
+        'variables', 
+        'utils', 
+        'globals';
+
+@import 'blocks/section',
+        'blocks/button',
+        'blocks/burger-button',
+        'blocks/mobile-overlay',
+        'blocks/cross-button',
+        'blocks/header',
+        'blocks/hero',
+        'blocks/advantages',
+        'blocks/reviews',
+        'blocks/review-block',
+        'blocks/amenities',
+        'blocks/location',
+        'blocks/layout';
+
