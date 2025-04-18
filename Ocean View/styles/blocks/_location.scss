@@ -1,0 +1,88 @@
+.location {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+
+    @include mobile {
+        row-gap: 30px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 100%;
+        transition-duration: var(--transition-duration);
+
+        @include hover {
+            color: var(--color-main);
+            font-size: 52px;
+        }
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 24px;
+            max-width: 70%;
+
+            @include hover {
+                color: var(--color-main);
+                font-size: 28px;
+                transition-duration: 0;
+            }
+        }   
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        @include mobile {
+            row-gap: 30px;
+        }
+    }   
+
+    &__image {
+        width: 100%;
+        height: 100%;   
+        object-fit: cover;
+
+        @include mobile {
+            min-height: 460px;
+            min-width: 100%;
+            border-radius: 20px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+
+        @include container-width {
+            justify-content: start;
+            column-gap: 40px;
+            row-gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+
+        &-title {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            
+            @include mobile {
+                width: 100%;
+            }
+        }
+    }
+}

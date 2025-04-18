@@ -1,0 +1,118 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+        align-items: start;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 100%;
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        &-span {
+            color: var(--color-main);
+        }
+    }
+
+    &__description {
+        max-width: 406px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    &__soc1als {
+
+        &-list {
+            display: flex;
+            column-gap: 50px;
+        }
+    }
+
+    &__others {
+        display: flex;
+        column-gap: 50px;
+
+        @include tablet {
+            flex-direction: column;
+            row-gap: 30px;
+        }
+    }
+
+    &__contacts,
+    &__support {
+        
+        &-list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+        }
+
+        &-item {
+            font-weight: 300;
+            font-size: 18px;
+
+            &-title {
+                font-weight: 700;
+                font-size: 24px;
+
+                @include hover {
+                    color: var(--color-main);
+                }
+        
+                @include mobile {
+                    transition-duration: 0;
+                }
+            }
+
+            &-link {
+                font-weight: 300;
+                font-size: 18px;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    translate: -50%;
+                    width: 0;
+                    height: 2px;
+                    background-color: var(--color-main);
+                    transition-duration: inherit;
+                }
+    
+                @include hover {
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        padding-block: 50px;
+    }
+}
+

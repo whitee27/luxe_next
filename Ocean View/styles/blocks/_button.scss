@@ -1,0 +1,49 @@
+.button {
+    color: var(--color-light);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 25px;
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-main);
+    transition: background-color var(--transition-duration);
+    border: none;
+    width: 218px;
+    height: 31px;
+    text-wrap: nowrap;
+    cursor: pointer;
+    max-height: 32px;
+    user-select: none;
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+    }
+
+    @include container-width {
+        line-height: 100%;
+        text-wrap: wrap;
+        font-size: 14px;
+        padding: 5px 25px;
+        width: 142px;
+        min-height: 44px;
+    }
+
+    @include tablet {
+        padding: 5px 20px;
+        font-size: 10px;
+        width: 80%;
+    }
+
+    @include mobile-s {
+        font-size: 14px;
+        width: 80%;
+        line-height: 120%;
+    }
+    
+    @include mobile-s-below {
+        font-size: 10px;
+        width: 50%;
+    }
+    
+}
